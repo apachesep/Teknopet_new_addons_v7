@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+       	<report
+       		id="delivery_page_report_qc"
+            string="Print QC Documents"
+            model="stock.picking.out"
+            name="delivery.page.report"
+            auto="True"
+        />
+
+    </data>
+</openerp>

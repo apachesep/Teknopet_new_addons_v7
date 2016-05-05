@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vim:fdl=1:
+-->
+
+
+<templates id="template" xml:space="preserve">
+
+	 <t t-name="PodWidget">
+<!--<script src="/point_of_delivery/static/src/js/screen_delivery.js"></script>-->
+        <div class="point-of-sale">
+        	<div class="showact" style="display:none">
+        	  <div aria-hidden="false" class="modal in" data-backdrop="static" role="dialog" tabindex="-1" style="display:block">
+                <div class="modal-dialog" >
+                    <div class="modal-content openerp" style="margin-top: 30%;">
+                        <div class="modal-header">
+                            <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                            <h3 class="modal-title">Invalid Action</h3>
+                        </div>
+                        <div class="modal-body oe_act_window">
+	                        <div aria-hidden="false">
+							    <div class="container-fluid">
+							        <div class="row">
+							            <span>Please Add Product in Product Line to create Package.</span>
+							        </div>
+					            </div>
+					        </div>
+				        </div>
+				            <div class="modal-footer"><span class="oe_dialog_custom_buttons"></span></div>
+				    </div>
+				</div>
+			</div>
+				    <div class="modal-backdrop  in"></div>
+			</div>
+            <div class="showscan" style="display:none">
+              <div aria-hidden="false" class="modal in" data-backdrop="static" role="dialog" tabindex="-1" style="display:block">
+                <div class="modal-dialog" >
+                    <div class="modal-content openerp" style="margin-top: 30%;">
+                        <div class="modal-header">
+                            <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                            <h3 class="modal-title">Invalid Match</h3>
+                        </div>
+                        <div class="modal-body oe_act_window">
+                            <div aria-hidden="false">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <span>Product does not match with selected delivery order.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="modal-footer"><span class="oe_dialog_custom_buttons"></span></div>
+                    </div>
+                </div>
+            </div>
+                    <div class="modal-backdrop  in"></div>
+            </div>
+
+
+            <div class="raw_mat" style="display:none">
+			<audio id="xyz" src="/point_of_delivery/static/src/img/b.mp3" preload="auto"></audio>
+              <div aria-hidden="false" class="modal in" data-backdrop="static" role="dialog" tabindex="-1" style="display:block">
+                <div class="modal-dialog" >
+                    <div class="modal-content openerp" style="margin-top: 30%;">
+                        <div class="modal-header">
+                            <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                            <h3 class="modal-title">Raw material is different!</h3>
+                        </div>
+                        <div class="modal-body oe_act_window">
+                            <div aria-hidden="false">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <span>Raw material is different. </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="modal-footer"><span class="oe_dialog_custom_buttons"></span></div>
+                    </div>
+                </div>
+            </div>
+                    <div class="modal-backdrop  in"></div>
+            </div>
+
+
+            <div class="scanned" style="display:none">
+
+			<audio id="xyz" src="/point_of_delivery/static/src/img/b.mp3" preload="auto"></audio>
+
+
+              <div aria-hidden="false" class="modal in" data-backdrop="static" role="dialog" tabindex="-1" style="display:block">
+                <div class="modal-dialog" >
+                    <div class="modal-content openerp" style="margin-top: 30%;">
+
+                        <div class="modal-header">
+                            <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                            <h3 class="modal-title">Already Scanned!</h3>
+                        </div>
+                        <div class="modal-body oe_act_window">
+                            <div aria-hidden="false">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <span>Product is already scanned....</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="modal-footer"><span class="oe_dialog_custom_buttons"></span></div>
+                    </div>
+                </div>
+            </div>
+                    <div class="modal-backdrop  in"></div>
+            </div>
+
+
+            <div class="shownotqty" style="display:none">
+              <div aria-hidden="false" class="modal in" data-backdrop="static" role="dialog" tabindex="-1" style="display:block">
+                <div class="modal-dialog" >
+                    <div class="modal-content openerp" style="margin-top: 30%;">
+                        <div class="modal-header">
+                            <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                            <h3 class="modal-title">Invalid Quantity</h3>
+                        </div>
+                        <div class="modal-body oe_act_window">
+                            <div aria-hidden="false">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <span>Product does not Match Criteria.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="modal-footer"><span class="oe_dialog_custom_buttons"></span></div>
+                    </div>
+                </div>
+            </div>
+                    <div class="modal-backdrop  in"></div>
+            </div>
+            <div id="topheader">
+                <div id="branding">
+                    <img src="/point_of_delivery/static/src/img/loogo.png" />
+                    <span class="placeholder-UsernameWidget"></span>
+                </div>
+                <div id="rightheader">
+                    <!-- here goes header buttons -->
+                </div>
+            </div>
+            <div id="content">
+
+                <div id="leftpane">
+                    <div id="placeholder-DOrderWidget"></div><!-- kk -->
+                </div>
+                <div id="rightpane" style="overflow:auto;">
+                </div>
+            </div>
+            <div class="loader">
+            </div>
+            &lt;!--[if IE]&gt;
+            <div class='not-supported-browser'>
+                <div class='message'>
+                    <img src='/point_of_sale/static/src/img/pos_screenshot.jpg' />
+                    <p>
+                        The Point of Sale is not supported by Microsoft Internet Explorer. Please use
+                        a modern browser like <a href="http://www.mozilla.org/firefox/" target="_blank">Mozilla Firefox</a>
+                        or <a href="http://www.google.com/chrome" target="_blank">Google Chrome</a>.
+                    </p>
+                </div>
+            </div>
+            &lt;![endif]--&gt;
+        </div>
+    </t>
+
+    <t t-name="HeaderButtonWidget">
+        <div class="header-button">
+            <t t-esc="widget.label" />
+        </div>
+        <div class="oe_pos_synch-notification oe_inactive">
+            <div class="oe_status_green"></div>
+        </div>
+    </t>
+
+    <t t-name="PosCloseWarning">
+        <div>There are pending operations that could not be saved into the database, are you sure you want to exit?</div>
+    </t>
+
+    <t t-name="PaypadWidget">
+        <div id="paypad">
+        </div>
+    </t>
+
+
+
+    <t t-name="ScanProductLine">
+        <t t-foreach="widget" t-as="line">
+                <tr class="productline">
+                    <td><t t-esc="line['product_name']"></t></td>
+                    <td style="display:none"><t t-esc="line['id']"></t></td>
+                    <td class="middle_d"><t t-esc="line['qty']"></t></td>
+                    <td class="middle_d"><t t-esc="line['unit']"></t></td>
+                    <td class="middle_d"><t t-esc="line['source']"></t></td>
+                    <td class="barcode"><t t-esc="line['barcode']"></t></td>
+                    <td class="middle_d"><img class="close_tr" src="/point_of_delivery/static/src/img/STOCK_STOP.png"></img></td>
+                </tr>
+        </t>
+    </t>
+
+    <t t-name="DeliveryWidgetBarcode">
+		<div class="name_package">
+	        <span style="padding:6px 3px;font-size: 16px;">Packages</span>
+	        <div id="updated_pack_name">
+				<button class="pack_buton"><img class="pack_print" src="/point_of_delivery/static/src/img/icons/png48/printer.png"/></button>
+	        </div>
+	   </div>
+	   <table class="package_detail">
+			<thead>
+				<th class="name">Name</th>
+				<th class="qty">Qty</th>
+				<th class="unit">Unit</th>
+				<th class="stock">Source</th>
+				<th class="barcode_num">Barcode Number</th>
+				<th class="delete_line">Delete</th>
+			</thead>
+				<tbody class="tab_package">
+
+				</tbody>
+		</table>
+    </t>
+
+
+
+	<t t-name="DeliveryWidget">
+		<div class="address">
+	        <span style="padding:6px 3px;">Order Details</span>
+	        <div>
+	        	<span style="padding:6px 3px;font-size:13px;"><t t-esc="widget.selected_ordername"></t></span>
+	        </div>
+	   </div>
+	   <table class="order_detail">
+			<thead>
+				<th class="name">Name</th>
+
+                <th class="qty">UOS Qty</th>
+				<th class="remaining">Remaining</th>
+                <th class="qty">UOM Qty</th>
+				<th class="unit">Unit</th>
+				<th class="stock">Source</th>
+				<th class="stock">Raw material</th>
+			</thead>
+			<t t-foreach="widget.orders" t-as="line">
+				<tbody class="tab_delivery">
+					<tr>
+						<td><t t-esc="line['product_name']"></t></td>
+                        <td style="display:none;"><t t-esc="line['id']"></t></td>
+
+                        <td class="middle_d"><t t-esc="line['qty_uos']"></t></td>
+						<td class="middle_d"><t t-esc="line['qty_uos']"></t></td>
+                        <td class="middle_d"><t t-esc="line['qty']"></t></td>
+						<td class="middle_d"><t t-esc="line['unit']"></t></td>
+						<td class="middle_d"><t t-esc="line['source']"></t></td>
+						<td class="middle_d"><t t-esc="line['barcode']"></t></td>
+					</tr>
+				</tbody>
+			</t>
+	   </table>
+	</t>
+
+
+	<t t-name="DeliveryDetailsWidget">
+		<div class="address">
+			<span style="padding:6px 3px;">Address</span>
+		</div>
+		<table class="delivery_info">
+			<tr>
+				<td><b>Name</b></td>
+				<td><b>:</b></td>
+				<td><t t-esc="widget.aaddreess.name"></t></td>
+			</tr>
+			<tr>
+				<td><b>Street</b></td>
+				<td><b>:</b></td>
+				<td><t t-if="widget.aaddreess.street != false"><t t-esc="widget.aaddreess.street"></t></t></td>
+			</tr>
+			<tr>
+      			<td><b>Street2</b></td>
+      			<td><b>:</b></td>
+      			<td><t t-if="widget.aaddreess.street2 != false"><t t-esc="widget.aaddreess.street2"></t></t></td>
+      		</tr>
+      		<tr>
+      			<td><b>Phone</b></td>
+      			<td><b>:</b></td>
+      			<td><t t-if="widget.aaddreess.phone != false"><t t-esc="widget.aaddreess.phone"></t></t></td>
+      		</tr>
+      		<tr>
+      			<td><b>Email</b></td>
+      			<td><b>:</b></td>
+      			<td><t t-if="widget.aaddreess.email != false"><t t-esc="widget.aaddreess.email"></t></t></td>
+      		</tr>
+      		<tr>
+      			<td><b>Fax</b></td>
+      			<td><b>:</b></td>
+      			<td><t t-if="widget.aaddreess.fax != false"><t t-esc="widget.aaddreess.fax"></t></t></td>
+      		</tr>
+      	</table>
+	</t>
+
+    <t t-name="CategoryButton">
+        <li class='category-button'>
+            <div class="category-img">
+                <img src="" />
+            </div>
+            <div class="category-name">
+                <t t-esc="category.name"/>
+            </div>
+        </li>
+    </t>
+
+	<t t-name="DeliveryPackageListWidget">
+		<div class="package">
+			<table class="package_final">
+				<tr>
+
+					<td style="width:90px;">
+						<div>
+				            <div class="icon pull-right" id="reset">
+				                <img style="margin-top: 6px;" src="/point_of_delivery/static/src/img/home.png" />
+				                <div class="iconlabel">Reset</div>
+				            </div>
+				            <div class="icon pull-right" id="done" style="display: none;">
+				                <img style="margin-top: 6px;" src="/point_of_delivery/static/src/img/icons/png48/validate.png"/>
+				                <div class="iconlabel">Done!</div>
+				            </div>
+				       </div>
+				   </td>
+				  </tr>
+		     </table>
+		</div>
+	</t>
+
+    <t t-name="DeliveryListWidget">
+		<div class="white-gradient4"></div>
+        <div id="categories4">
+        </div>
+    </t>
+
+    <t t-name="DeliveryCategoriesWidget">
+    	<div class="white-gradient1"></div>
+         <div id="categories1">
+         </div>
+    </t>
+
+    <t t-name="DeliveryDetailsCategoriesWidget">
+    	<div class="white-gradient2"></div>
+         <div id="categories2">
+		</div>
+    </t>
+
+
+
+    <t t-name="DeliveryScreenWidget">
+        <div id="products-screen" class="screen">
+            <table class="layout-table">
+
+                <tr class="header-ro">
+                    <td class="header-cell1">
+                        <span class="placeholder-DeliveryCategoriesWidget" />
+                    </td>
+                    <td class="header-cell2 pull-right">
+                        <span class="placeholder-DeliveryDetailsCategoriesWidget" />
+                    </td>
+                </tr>
+
+                <tr class="content-ro" id="categories3">
+                    <td>
+                    	<div>
+                    		<span class="placeholder-DeliveryListWidget" />
+						</div>
+                    </td>
+                    <td>
+                    	<span class="placeholder-DeliveryPackageListWidget" />
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </t>
+
+
+
+    <t t-name="ScrollbarWidget">
+        <div class='scrollbar'>
+            <div class='up-button button oe_e'>
+                &amp;atilde;
+            </div>
+
+            <div class='scroller'>
+            </div>
+
+            <div class='down-button button oe_e'>
+                &amp;auml;
+            </div>
+        </div>
+    </t>
+
+    <t t-name="DOrderWidget"> <!--  kk -->
+        <div class="order-container">
+        	<div class="searchbox">
+	           <input placeholder="Search Delivery Orders" />
+	           <img class="search-clear" src="/point_of_delivery/static/src/img/search_reset.gif"  />
+	       </div>
+            <div class="order-scroller" style="margin-top:35px ! important;">
+                <div class="order">
+                    <ul class="orderlines">
+                    </ul>
+                </div>
+            </div>
+            <div class="shadow-top"></div>
+            <span class="placeholder-ScrollbarWidget"></span>
+        </div>
+    </t>
+
+
+    <t t-name="DOrderButtonWidget"> <!-- kk -->
+        <li class="order-selector-button">
+            <button class="select-order"></button>
+        </li>
+    </t>
+
+
+
+    <!-- Onscreen Keyboard :
+         http://net.tutsplus.com/tutorials/javascript-ajax/creating-a-keyboard-with-css-and-jquery/ -->
+    <t t-name="OnscreenKeyboardFull">
+        <div class="keyboard_frame">
+            <ul class="keyboard full_keyboard">
+                <li class="symbol"><span class="off">`</span><span class="on">~</span></li>
+                <li class="symbol"><span class="off">1</span><span class="on">!</span></li>
+                <li class="symbol"><span class="off">2</span><span class="on">@</span></li>
+                <li class="symbol"><span class="off">3</span><span class="on">#</span></li>
+                <li class="symbol"><span class="off">4</span><span class="on">$</span></li>
+                <li class="symbol"><span class="off">5</span><span class="on">%</span></li>
+                <li class="symbol"><span class="off">6</span><span class="on">^</span></li>
+                <li class="symbol"><span class="off">7</span><span class="on">&amp;</span></li>
+                <li class="symbol"><span class="off">8</span><span class="on">*</span></li>
+                <li class="symbol"><span class="off">9</span><span class="on">(</span></li>
+                <li class="symbol"><span class="off">0</span><span class="on">)</span></li>
+                <li class="symbol"><span class="off">-</span><span class="on">_</span></li>
+                <li class="symbol"><span class="off">=</span><span class="on">+</span></li>
+                <li class="delete lastitem">delete</li>
+                <li class="tab firstitem">tab</li>
+                <li class="letter">q</li>
+                <li class="letter">w</li>
+                <li class="letter">e</li>
+                <li class="letter">r</li>
+                <li class="letter">t</li>
+                <li class="letter">y</li>
+                <li class="letter">u</li>
+                <li class="letter">i</li>
+                <li class="letter">o</li>
+                <li class="letter">p</li>
+                <li class="symbol"><span class="off">[</span><span class="on">{</span></li>
+                <li class="symbol"><span class="off">]</span><span class="on">}</span></li>
+                <li class="symbol lastitem"><span class="off">\</span><span class="on">|</span></li>
+                <li class="capslock firstitem">caps lock</li>
+                <li class="letter">a</li>
+                <li class="letter">s</li>
+                <li class="letter">d</li>
+                <li class="letter">f</li>
+                <li class="letter">g</li>
+                <li class="letter">h</li>
+                <li class="letter">j</li>
+                <li class="letter">k</li>
+                <li class="letter">l</li>
+                <li class="symbol"><span class="off">;</span><span class="on">:</span></li>
+                <li class="symbol"><span class="off">'</span><span class="on">&quot;</span></li>
+                <li class="return lastitem">return</li>
+                <li class="left-shift firstitem">shift</li>
+                <li class="letter">z</li>
+                <li class="letter">x</li>
+                <li class="letter">c</li>
+                <li class="letter">v</li>
+                <li class="letter">b</li>
+                <li class="letter">n</li>
+                <li class="letter">m</li>
+                <li class="symbol"><span class="off">,</span><span class="on">&lt;</span></li>
+                <li class="symbol"><span class="off">.</span><span class="on">&gt;</span></li>
+                <li class="symbol"><span class="off">/</span><span class="on">?</span></li>
+                <li class="right-shift lastitem">shift</li>
+                <li class="space firstitem lastitem">&amp;nbsp;</li>
+            </ul>
+            <p class="close_button">close</p>
+        </div>
+    </t>
+
+    <t t-name="OnscreenKeyboardSimple">
+        <div class="keyboard_frame">
+            <ul class="keyboard simple_keyboard">
+                <li class="symbol firstitem row_qwerty"><span class="off">q</span><span class="on">1</span></li>
+                <li class="symbol"><span class="off">w</span><span class="on">2</span></li>
+                <li class="symbol"><span class="off">e</span><span class="on">3</span></li>
+                <li class="symbol"><span class="off">r</span><span class="on">4</span></li>
+                <li class="symbol"><span class="off">t</span><span class="on">5</span></li>
+                <li class="symbol"><span class="off">y</span><span class="on">6</span></li>
+                <li class="symbol"><span class="off">u</span><span class="on">7</span></li>
+                <li class="symbol"><span class="off">i</span><span class="on">8</span></li>
+                <li class="symbol"><span class="off">o</span><span class="on">9</span></li>
+                <li class="symbol lastitem"><span class="off">p</span><span class="on">0</span></li>
+
+                <li class="symbol firstitem row_asdf"><span class="off">a</span><span class="on">@</span></li>
+                <li class="symbol"><span class="off">s</span><span class="on">#</span></li>
+                <li class="symbol"><span class="off">d</span><span class="on">%</span></li>
+                <li class="symbol"><span class="off">f</span><span class="on">*</span></li>
+                <li class="symbol"><span class="off">g</span><span class="on">/</span></li>
+                <li class="symbol"><span class="off">h</span><span class="on">-</span></li>
+                <li class="symbol"><span class="off">j</span><span class="on">+</span></li>
+                <li class="symbol"><span class="off">k</span><span class="on">(</span></li>
+                <li class="symbol lastitem"><span class="off">l</span><span class="on">)</span></li>
+
+                <li class="symbol firstitem row_zxcv"><span class="off">z</span><span class="on">?</span></li>
+                <li class="symbol"><span class="off">x</span><span class="on">!</span></li>
+                <li class="symbol"><span class="off">c</span><span class="on">"</span></li>
+                <li class="symbol"><span class="off">v</span><span class="on">'</span></li>
+                <li class="symbol"><span class="off">b</span><span class="on">:</span></li>
+                <li class="symbol"><span class="off">n</span><span class="on">;</span></li>
+                <li class="symbol"><span class="off">m</span><span class="on">,</span></li>
+                <li class="delete lastitem">delete</li>
+
+                <li class="numlock firstitem row_space"><span class="off">123</span><span class="on">ABC</span></li>
+                <li class="space">&amp;nbsp;</li>
+                <li class="symbol"><span class="off">.</span><span class="on">.</span></li>
+                <li class="return lastitem">return</li>
+            </ul>
+            <p class="close_button">close</p>
+        </div>
+    </t>
+
+
+
+</templates>

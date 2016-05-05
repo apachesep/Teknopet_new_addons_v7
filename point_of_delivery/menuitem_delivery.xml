@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+        <menuitem id ="main_point_of_delivery" name="Point of Delivery" sequence="40"/>
+
+        <menuitem id ="main_point_of_delivery_sub" name="Point of Delivery" parent="main_point_of_delivery" sequence="5"/>
+
+        <menuitem id ="main_point_of_delivery_child" name="Stock Delivery" action="action_pod_session_opening" parent="main_point_of_delivery_sub" sequence="0"/>
+
+		<menuitem action="stock.action_picking_tree" id="menu_action_picking_tree" parent="main_point_of_delivery_sub" sequence="3"/>
+	</data>
+</openerp>

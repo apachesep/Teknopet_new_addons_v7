@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+
+
+        <!-- After installation of the module, open the related menu -->
+        <record id="action_client_pod_menu" model="ir.actions.client">
+            <field name="name">Open POS Menu</field>
+            <field name="tag">reload</field>
+            <field name="params" eval="{'menu_id': ref('main_point_of_delivery')}"/>
+        </record>
+
+
+
+
+<!-- Inherited Analytic Account form for contracts -->
+        <record id="stock_move_form_form" model="ir.ui.view">
+            <field name="name">stock.move.form.inherit</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//group[@string="Origin"]/field[@name="create_date"]' position="after" version="7.0">
+                        <field name="raw_material_type_name"/>
+                    
+                </xpath>
+                
+            </field>
+        </record>
+
+   </data>
+</openerp>

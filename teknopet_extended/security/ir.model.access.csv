@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_quality_analysis_user,quality.analysis.user,model_quality_analysis,base.group_user,1,1,1,0
+access_analysis_name_user,analysis.name.user,model_analysis_name,base.group_user,1,1,1,0
+access_raw_material_type_name_user,raw.material.type.name.user,model_raw_material_type_name,base.group_user,1,1,1,0

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+
+		<record id="analysis_name_id" model="analysis.name">
+			<field name="name">Colorant Type</field>
+		</record>
+		<!--record id="analysis_name_id1" model="analysis.name">
+			<field name="name">Raw Material Type</field>
+		</record-->
+		<record id="analysis_name_id1" model="analysis.name">
+			<field name="name">Inner Diameter</field>
+		</record>
+		<record id="analysis_name_id2" model="analysis.name">
+			<field name="name">Ovality</field>
+		</record>
+		<record id="analysis_name_id3" model="analysis.name">
+			<field name="name">Outer Diameter</field>
+		</record>
+		<record id="analysis_name_id4" model="analysis.name">
+			<field name="name">Ring Position</field>
+		</record>
+		<record id="analysis_name_id5" model="analysis.name">
+			<field name="name">RD</field>
+		</record>
+		<record id="analysis_name_id6" model="analysis.name">
+			<field name="name">Snapper Cap</field>
+		</record>
+		<record id="analysis_name_id7" model="analysis.name">
+			<field name="name">Neck Ring</field>
+		</record>
+		<record id="analysis_name_id8" model="analysis.name">
+			<field name="name">Overall Height</field>
+		</record>
+		<record id="analysis_name_id9" model="analysis.name">
+			<field name="name">Base Wall Thickness</field>
+		</record>
+		<record id="analysis_name_id10" model="analysis.name">
+			<field name="name">Body Wall Thickness</field>
+		</record>
+		<record id="analysis_name_id11" model="analysis.name">
+			<field name="name">I.V.</field>
+		</record>
+		<record id="analysis_name_id12" model="analysis.name">
+			<field name="name">Visual Appearance</field>
+		</record>
+		<record id="analysis_name_id13" model="analysis.name">
+			<field name="name">Odour</field>
+		</record>
+		<record id="analysis_name_id14" model="analysis.name">
+			<field name="name">Acetaldehyde Level</field>
+		</record>
+		<record id="analysis_name_id15" model="analysis.name">
+			<field name="name">Migration test values</field>
+		</record>
+		<record id="analysis_name_id16" model="analysis.name">
+			<field name="name">Polarized lamp test pass/fail</field>
+		</record>
+	</data>
+</openerp>

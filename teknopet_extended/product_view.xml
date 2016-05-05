@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+        <record id="product_quality_analysis_tree_view" model="ir.ui.view">
+            <field name="name">product.quality.analysis.tree.view</field>
+            <field name="model">product.quality.analysis</field>
+            <field name="arch" type="xml">
+            	<tree string="Analysis Name">
+	            	<field name="product_id"/>
+					<field name="qc_document"/>
+				</tree>
+            </field>
+        </record>
+
+		<record id="product_quality_analysis_form_view" model="ir.ui.view">
+			<field name="name">product.quality.analysis.form.view</field>
+			<field name="model">product.quality.analysis</field>
+			<field name="arch" type="xml">
+				<form string="Quality Analysis" version="7.0">
+					<sheet>
+						<label for="product_id"/>
+						<h1>
+							<field name="product_id" />
+						</h1>
+						<group>
+							<div>
+								<field name="qc_document" />
+								<label for="qc_document"/>
+							</div>
+						</group>
+						<notebook>
+							<page string="Quality Analysis">
+								<field name="quality_analysis_ids">
+									<tree editable="True">
+										<field name="analysis_id" />
+										<field name="is_text" />
+										<field name="text_value" attrs="{'invisible': [('is_text','=', False)]}"/>
+										<field name="min_value" />
+										<field name="max_value" />
+										<field name="is_ok" />
+									</tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+                </form>
+			</field>
+		</record>
+
+        <record id="product_quality_analysis_action" model="ir.actions.act_window">
+            <field name="name">Quality Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.quality.analysis</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a Quality Analysis by Product.
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="product_quality_analysis_menu_id" name="Quality Analysis Type" action="product_quality_analysis_action" parent="mrp.menu_mrp_configuration"/>
+
+        <act_window
+        	context="{'search_default_product_id': [active_id]}"
+            id="act_product_quality_analysis_open"
+            name="Product Quality Type"
+            domain="[('product_id', 'in', active_ids)]"
+            view_id="product_quality_analysis_tree_view"
+            res_model="product.quality.analysis"
+            src_model="product.product"/>
+
+		<record id="quality_analysis_form" model="ir.ui.view">
+			<field name="name">quality.analysis.form</field>
+			<field name="model">quality.analysis</field>
+			<field name="arch" type="xml">
+				<form string="Quality Analysis" version="7.0">
+					<group>
+						<field name="prod_qua_ana_id" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record id="analysis_name_form" model="ir.ui.view">
+			<field name="name">analysis.name.form</field>
+			<field name="model">analysis.name</field>
+			<field name="arch" type="xml">
+				<form string="Analysis Name" version="7.0">
+				<sheet>
+					<group>
+						<field name="name" />
+					</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="analysis_name_tree" model="ir.ui.view">
+			<field name="name">analysis.name.tree</field>
+			<field name="model">analysis.name</field>
+			<field name="arch" type="xml">
+				<tree string="Analysis Name">
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="action_analysis_name_form" model="ir.actions.act_window">
+			<field name="name">Analtsis Name</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">analysis.name</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="quality_analysis_manu_id" name="Quality Analysis" action="action_analysis_name_form" parent="mrp.menu_mrp_configuration"/>
+
+
+        <record id="raw_material_name_form" model="ir.ui.view">
+            <field name="name">raw.material.type.name.form</field>
+            <field name="model">raw.material.type.name</field>
+            <field name="arch" type="xml">
+                <form string="Raw Material Type" version="7.0">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="raw_material_name_tree" model="ir.ui.view">
+            <field name="name">raw.material.type.name.tree</field>
+            <field name="model">raw.material.type.name</field>
+            <field name="arch" type="xml">
+                <tree string="Raw Material Type">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_raw_material_type" model="ir.actions.act_window">
+            <field name="name">Raw Material Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">raw.material.type.name</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="sale_order_line_form_view_extend" model="ir.ui.view">
+            <field name="name">sale.order.line.form.view.extend</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="before">
+                	<field name="raw_material_type_id"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="before">
+                	<field name="raw_material_type_id"/>
+                </xpath>
+            </field>
+        </record>
+
+		<menuitem id="raw_material_type_menu_id" name="Raw Material Type" action="action_raw_material_type" parent="mrp.menu_mrp_configuration"/>
+	</data>
+</openerp>
