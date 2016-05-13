@@ -138,7 +138,7 @@
             </div>
             <div id="topheader">
                 <div id="branding">
-                    <img src="/point_of_delivery/static/src/img/logo2.png" />
+                    <img src="/point_of_delivery/static/src/img/loogo.png" />
                     <span class="placeholder-UsernameWidget"></span>
                 </div>
                 <div id="rightheader">
@@ -414,11 +414,6 @@
                     <ul class="orderlines">
                     </ul>
                 </div>
-                <div class="oe_login_logo" style="text-align:center;">
-                	<span><img src='/point_of_delivery/static/src/img/icons/png48/go-previous.png'/></span>
-                	<span><img src='/point_of_delivery/static/src/img/icons/png48/go-next.png'/></span>
-                </div>
-
             </div>
             <div class="shadow-top"></div>
             <span class="placeholder-ScrollbarWidget"></span>

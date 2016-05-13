@@ -26,63 +26,87 @@ function openerp_pod_screens(instance, module){
         },
 
 		get_move_line: function(move_id){
-			//move_lines = []
-			raw_mat_type_id_list=[]
-
-			console.log("in get move line move_id of length is",move_id.length);
+			move_lines = []
 			for(i = 0; i < this.pod.attributes.move_line.length; i++){
-				console.log("move_line______@@@@@@@@2",this.pod.attributes.move_line[i]);
-				if (this.pod.attributes.move_line[i].sale_line_id[0])
-				{
-				console.log("sale_line_id____1__",this.pod.attributes.move_line[i].sale_line_id[0]);
-				dict ={}
-				for(k = 0; k < this.pod.attributes.sol_list.length; k++)
-				{
-					console.log("sale_line_id____from list__",this.pod.attributes.sol_list[k].id);
-					//console.log("sale_line_id____from raw material__",this.pod.attributes.sol_list[k].raw_material_type_id[1]);
-					if (this.pod.attributes.sol_list[k].id == this.pod.attributes.move_line[i].sale_line_id[0])
-					{
-						raw_mat_type_id = this.pod.attributes.sol_list[k].raw_material_type_id[0];
-						//raw_mat_type_id_list.push(raw_mat_type_id);
-						//var key = new String(this.pod.attributes.move_line[i].id);
-						var key = this.pod.attributes.sol_list[k].id;
-						console.log(key,"kkkkkkkkkkkeeeeeeeeeeeeeeeeeeeeyyyyyyyyyy");
-						dict = {
-							key : key,
-							value : this.pod.attributes.sol_list[k].raw_material_type_id[0],
-							};
-
-
-						console.log("sssssssss",dict);
-					}
-				}
-				}
-				console.log("##########3",raw_mat_type_id_list);
+			    console.log("in get move line move_id of length is",this.pod.attributes.move_line.length);
 				final_move_lines = {}
 				for(j = 0; j < move_id.length; j++ ){
+				    console.log("############### move_id.length is",move_id.length)
 					if(this.pod.attributes.move_line[i].id == move_id[j]){
 						var list = this.pod.attributes.move_line[i].location_id[1].split('/');
-						del_id= this.pod.attributes.move_line[i].picking_id[0];
-
 						final_move_lines = {
 								'product_name':this.pod.attributes.move_line[i].name,
                                 'id':this.pod.attributes.move_line[i].product_id[0],
                                 'qty':this.pod.attributes.move_line[i].product_qty,
 								'qty_uos':this.pod.attributes.move_line[i].product_uos_qty,
 								'unit':this.pod.attributes.move_line[i].product_uom[1],
-                                'barcode':this.pod.attributes.move_line[i].raw_material_type_name[0],
+								'barcode':this.pod.attributes.move_line[i].raw_material_type_name[1],
 								'source':list.pop(),
 						};
 						move_lines[j] = final_move_lines;
 					}
-
 				}
-
 			}
-			//console.log("del_id===========>>>>>>>>>",picking_id[0]);
-			//console.log("@@@@@@@@@@@@@@@@@@@222",temp);
 			return move_lines;
 		},
+
+// Error Source
+	//	get_move_line: function(move_id){
+		//	raw_mat_type_id_list=[]
+
+			//console.log("in get move line move_id of length is",move_id.length);
+		//	for(i = 0; i < this.pod.attributes.move_line.length; i++){
+			//	console.log("move_line______@@@@@@@@2",this.pod.attributes.move_line[i]);
+				//if (this.pod.attributes.move_line[i].sale_line_id[0])
+				//{
+			//	console.log("sale_line_id____1__",this.pod.attributes.move_line[i].sale_line_id[0]);
+			//	dict ={}
+				//for(k = 0; k < this.pod.attributes.sol_list.length; k++)
+				//{
+				///	console.log("sale_line_id____from list__",this.pod.attributes.sol_list[k].id);
+				//	if (this.pod.attributes.sol_list[k].id == this.pod.attributes.move_line[i].sale_line_id[0])
+				//	{
+					//	raw_mat_type_id = this.pod.attributes.sol_list[k].raw_material_type_id[0];
+					//	var key = this.pod.attributes.sol_list[k].id;
+					//	console.log(key,"kkkkkkkkkkkeeeeeeeeeeeeeeeeeeeeyyyyyyyyyy");
+					//	dict = {
+						//	key : key,
+					//		value : this.pod.attributes.sol_list[k].raw_material_type_id[0],
+					//		};
+
+
+				//		console.log("sssssssss",dict);
+				//	}
+			//	}
+			//	}
+			//	console.log("##########3",raw_mat_type_id_list);
+				//final_move_lines = {}
+				//for(j = 0; j < move_id.length; j++ ){
+					//if(this.pod.attributes.move_line[i].id == move_id[j]){
+					//	var list = this.pod.attributes.move_line[i].location_id[1].split('/');
+						//del_id= this.pod.attributes.move_line[i].picking_id[0];
+
+						//final_move_lines = {
+							//	'product_name':this.pod.attributes.move_line[i].name,
+                           //     'id':this.pod.attributes.move_line[i].product_id[0],
+                           //     'qty':this.pod.attributes.move_line[i].product_qty,
+							//	'qty_uos':this.pod.attributes.move_line[i].product_uos_qty,
+							//	'unit':this.pod.attributes.move_line[i].product_uom[1],
+                            //    'barcode':this.pod.attributes.move_line[i].raw_material_type_name[1],
+							//	'source':list.pop(),
+					//	};
+					//	move_lines[j] = final_move_lines;
+					//	console.log("final_move_linessssssssssssss",final_move_lines)
+					//	console.log("move_lines[j]}}}}}}}}}]]]]]]]]]]]",move_lines[j])
+				//	}
+
+				//}
+
+			//}
+			//return move_lines;
+		//},
+
+
 
 		get_partner: function(val){
 			for(i = 0; i < this.pod.attributes.partners_list.length; i++){
@@ -113,6 +137,7 @@ function openerp_pod_screens(instance, module){
 					console.log("in get data ===move_id",move_id);
 					var res = this.get_partner(partner_idd);
 					var mov_res = this.get_move_line(move_id);
+					console.log("mov_ressssssssssssssssssss",mov_res)
 
 					console.log("stock.picking == stock.move na id match thaya pa6i male","in get data ===this.get_move_line(move_id)",this.get_move_line(move_id));
 						selected_delivery_order = {
@@ -123,6 +148,7 @@ function openerp_pod_screens(instance, module){
 				}
 			}
 			return selected_delivery_order;
+			console.log("selected_delivery_orderrrrrrrrrrrrrrr",selected_delivery_order)
 		},
 
 		search_order_in_delivery: function(delivery, query){
@@ -183,7 +209,7 @@ function openerp_pod_screens(instance, module){
                                     }
                                 }
                             }
-                        } 
+                        }
                     }
                     return false;
                 };
@@ -400,7 +426,7 @@ function openerp_pod_screens(instance, module){
                                     break;
                                 }
                                 break;
-                            } 
+                            }
                         }
                         }
                     } else if (String(value).length != 15)
@@ -503,10 +529,11 @@ function openerp_pod_screens(instance, module){
                 prodlot_list = [];
 				$(this).attr('class','orderline selected');
 				var selected_delivery = $(this)[0].textContent;
-				console.log("first go to the function get_data");
+				console.log("first go to the function get_data",selected_delivery);
 				$.when(self.get_data(selected_delivery)).then(function(res){
 					$('#categories2', this.$el).html(QWeb.render('DeliveryDetailsWidget',{widget:res}));
 					brcd = $('#categories1', this.$el).html(QWeb.render('DeliveryWidget',{widget:res}));
+					console.log("brcddddddddddddddd",brcd)
 					scrn = $('#categories4', this.$el).html(QWeb.render('DeliveryWidgetBarcode',{widget:res}));
 				});
 				$(scrn).find('.pack_buton').on("click", function() {
@@ -775,7 +802,12 @@ function openerp_pod_screens(instance, module){
         init: function(parent, options){
             var self = this;
             this._super(parent,options);
+
+
+
         },
+
+
     });
 
 	module.DeliveryDetailsCategoriesWidget = instance.web.Widget.extend({
@@ -807,6 +839,9 @@ function openerp_pod_screens(instance, module){
             var self = this;
             this.Delivery_categories_widget = new module.DeliveryCategoriesWidget(this,{});
             this.Delivery_categories_widget.replace($('.placeholder-DeliveryCategoriesWidget'));
+
+            //this.Scroll_categories_widget = new module.ScrollbarWidget(this,{});
+           // this.Scroll_categories_widget.replace($('.placeholder-ScrollbarWidget'));
 
             this.DeliveryDetails_categories_widget = new module.DeliveryDetailsCategoriesWidget(this,{});
             this.DeliveryDetails_categories_widget.replace($('.placeholder-DeliveryDetailsCategoriesWidget'));
@@ -876,8 +911,9 @@ function openerp_pod_screens(instance, module){
 			return self.pod.ready.done(function() {
 				var pod =  this.pod;
 
-				for(i=0;i<self.pod.attributes.delivery_list.length;i++){
-
+				//for(i=0;i<self.pod.attributes.delivery_list.length;i++){
+				for(i=0;i<10;i++){
+					console.log("in get move line move_id of length is",self.pod.attributes.delivery_list.length);
 					self.pod.add_new_order();
 					$('.orderlines').append("<li class='orderline'  id=order"+(i) +"><span class='product-name'>"+self.pod.attributes.delivery_list[i].name+"</span></li>");
 					var new_order = $('.orderline');
@@ -893,6 +929,8 @@ function openerp_pod_screens(instance, module){
 			});
 
 		},
+
+
 
         // This method instantiates all the screens, widgets, etc. If you want to add new screens change the
         // startup screen, etc, override this method.
