@@ -410,15 +410,72 @@
 	           <img class="search-clear" src="/point_of_delivery/static/src/img/search_reset.gif"  />
 	       </div>
             <div class="order-scroller" style="margin-top:35px ! important;">
+
+
+
                 <div class="order">
                     <ul class="orderlines">
                     </ul>
                 </div>
+
+			<ul id="pagin" style="font-size: 15px; padding-left: 10px;"> 
+					 
+			</ul>
+
+<!--<table class="order" id="tableID" width="100%">
+<thead>
+<tr>
+<th> </th>
+</tr>
+</thead>
+<tbody>
+
+
+<tr class="orderlines">
+</tr>
+
+</tbody>
+</table>-->
+
+
+
+<!--<div id="showRecordCount" class="col-md-3"></div> -->  <!--  showing rows count -->
+<!-- <div id="pageNavPosition" > </div> --> <!--  showing pagination -->
+<!--<script type="text/javascript">
+var pager = new Pager('tableID', 10,'showRecordCount');
+    console.log("pagerrrrrrrrrrrrrrrrrrrr",pager)
+pager.init();
+pager.showPageNav('pager', 'pageNavPosition');
+pager.showPage(1);
+</script>-->
+
+
+
+     <!--   <ul class="oe_pager_group">
+
+        <button class="oe_button oe_button_pager" type="button" data-pager-action="first">
+            <img t-att-src='_s + "/web/static/src/img/pager_first.png"'/>
+        </button>
+
+        <li>
+            <a class="oe_i" type="button" data-pager-action="previous">(</a>
+        </li>
+        <li>
+            <a class="oe_i" type="button" data-pager-action="next">)</a>
+        </li>
+
+        <button class="oe_button oe_button_pager" type="button" data-pager-action="last">
+            <img t-att-src='_s + "/web/static/src/img/pager_last.png"'/>
+        </button>
+        <button type="button" id="btn_click" > click me!</button>
+
+    </ul>
+
+
                 <div class="oe_login_logo" style="text-align:center;">
                 	<span><img src='/point_of_delivery/static/src/img/icons/png48/go-previous.png'/></span>
                 	<span><img src='/point_of_delivery/static/src/img/icons/png48/go-next.png'/></span>
-                </div>
-
+                </div>-->
             </div>
             <div class="shadow-top"></div>
             <span class="placeholder-ScrollbarWidget"></span>

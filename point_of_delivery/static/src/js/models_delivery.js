@@ -204,6 +204,11 @@ function openerp_pod_models(instance, module){ //module is instance.point_of_sal
                 last_orderline.merge(line);
             }else{
                 this.get('orderLines').add(line);
+                location.reload();
+                //setTimeout(function (line) { location.reload(1); }, 5000);
+               // location.reload('.order');
+					// Automatically Reload POD Screen after every 50 seconds...
+					//setTimeout(function () { location.reload(1); }, 50000);
             }
             this.selectLine(this.getLastOrderline());
         },
@@ -247,10 +252,12 @@ function openerp_pod_models(instance, module){ //module is instance.point_of_sal
             (this.get('orderLines')).each(_.bind( function(item) {
                 return orderLines.push([0, 0, item.export_as_JSON()]);
             }, this));
+            console.log("######### orderLinesssssssssssss",orderLines);
             paymentLines = [];
             (this.get('paymentLines')).each(_.bind( function(item) {
                 return paymentLines.push([0, 0, item.export_as_JSON()]);
             }, this));
+            console.log("######### paymentLinessssssssssss",paymentLines);
             return {
                 name: this.getName(),
                 amount_paid: this.getPaidTotal(),

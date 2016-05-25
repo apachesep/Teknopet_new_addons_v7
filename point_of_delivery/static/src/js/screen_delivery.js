@@ -19,6 +19,9 @@ function openerp_pod_screens(instance, module){
 
         },
 
+
+
+
 		click_handler: function() {
 			if (this.$('.orderline selected')){
 				$('li.orderline.selected').attr('class','orderline');
@@ -28,7 +31,7 @@ function openerp_pod_screens(instance, module){
 		get_move_line: function(move_id){
 			move_lines = []
 			for(i = 0; i < this.pod.attributes.move_line.length; i++){
-			    console.log("in get move line move_id of length is",this.pod.attributes.move_line.length);
+			    console.log("get move line move_id of length is",this.pod.attributes.move_line.length);
 				final_move_lines = {}
 				for(j = 0; j < move_id.length; j++ ){
 				    console.log("############### move_id.length is",move_id.length)
@@ -160,7 +163,9 @@ function openerp_pod_screens(instance, module){
                     search_delivery.push(str);
                 }
             }
+            console.log("ssearch_deliveryyyyyyyyyyyyyyyyyyyyyyyyyyyy",search_delivery)
             return search_delivery;
+            console.log("ssearch_deliveryyyyyyyyyyyyyyyyyyyyyyyyyyyy",search_delivery)
 		},
 
         renderElement: function() {
@@ -572,9 +577,14 @@ function openerp_pod_screens(instance, module){
 	            	delivery = []
 	            	for(i=0;i<self.pod.attributes.delivery_list.length;i++){
 						delivery.push(self.pod.attributes.delivery_list[i].name);
+						console.log("deliveryyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",delivery)
 	            	}
 		            var delivery_list = self.search_order_in_delivery(delivery, query);
+		            console.log("delivery_listttttttttttttttt",delivery_list)
 					var li_list = $('li.orderline');
+//					var li_list = this.$el.find('#tableID tbody').find('tr.orderlines').filter('td.orderline')
+					console.log("li_listttttttttttttttttttttttttttt",li_list)
+					
 		            for(i=0;i<li_list.length;i++){
 		            	$('#order'+i).css("display","none");
 						for(j=0;j<delivery_list.length;j++){
@@ -900,6 +910,7 @@ function openerp_pod_screens(instance, module){
             self.$('.loader').animate({opacity:0},1500,'swing',function(){self.$('.loader').hide();});
 			$('#leftpane').show().animate({'width':this.leftpane_width},500,'swing');
             $('#rightpane').animate({'left':this.leftpane_width},500,'swing');
+			//document.location.reload(document.getElementById("leftpane"));
 			$( ".close" ).click(function() {
 		        $("div.showact").hide();
                 $("div.scanned").hide();
@@ -908,14 +919,19 @@ function openerp_pod_screens(instance, module){
                 $('.shownotqty').hide();
 		    });
 
+
 			return self.pod.ready.done(function() {
 				var pod =  this.pod;
 
-				//for(i=0;i<self.pod.attributes.delivery_list.length;i++){
-				for(i=0;i<10;i++){
-					console.log("in get move line move_id of length is",self.pod.attributes.delivery_list.length);
+				for(i=0;i<self.pod.attributes.delivery_list.length;i++){
+
 					self.pod.add_new_order();
 					$('.orderlines').append("<li class='orderline'  id=order"+(i) +"><span class='product-name'>"+self.pod.attributes.delivery_list[i].name+"</span></li>");
+					
+					
+
+					
+					
 					var new_order = $('.orderline');
 					var new_order_button = new module.DOrderButtonWidget(null, { // kk
                         order: new_order,
@@ -925,9 +941,36 @@ function openerp_pod_screens(instance, module){
                     new_order_button.selectOrder();
                     self.pod.get('orders').add(new module.Order({ pod: self.pod }));
 				}
+				
+				//Pagination
+
+				console.log("Custom jssssssssssssssssssss")
+					pageSize = 10;
+
+					var pageCount =  $(".orderline").length / pageSize;
+					console.log("############# pageCount",pageCount)
+					 for(var i = 0 ; i<pageCount;i++){
+				
+					   $("#pagin").append('<li><a href="#">'+(i+1)+'</a></li> ');
+					 }
+						$("#pagin li").first().find("a").addClass("current")
+					showPage = function(page) {
+						$(".orderline").hide();
+						$(".orderline").each(function(n) {
+							if (n >= pageSize * (page - 1) && n < pageSize * page)
+								$(this).show();
+						});        
+					}
+		
+					showPage(1);
+
+					$("#pagin li a").click(function() {
+						$("#pagin li a").removeClass("current");
+						$(this).addClass("current");
+						showPage(parseInt($(this).text())) 
+					});
 
 			});
-
 		},
 
 

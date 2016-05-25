@@ -33,6 +33,12 @@
            'static/src/js/models_delivery.js',
            'static/src/js/screen_delivery.js',
            'static/src/js/screens_delivery.js',
+           
+           #'static/src/js/pagination.js',
+           #'static/src/js/pagination.min.js',
+           #'static/src/js/jquery.js',
+           #'static/src/js/paginate.js',
+           'static/src/js/custom.js',
            ],
     'data': [
              'wizard/pod_view.xml',
@@ -41,6 +47,7 @@
              ],
     'css': [
         'static/src/css/pod.css', # this is the default css with hover effects
+        'static/src/css/custom.css',
         'static/src/css/keyboard.css'],
     'qweb': ['static/src/xml/pod.xml'],
     'auto_install': False,
